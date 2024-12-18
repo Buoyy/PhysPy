@@ -5,7 +5,6 @@ def raise_un_sup(a, b):
     """Used for raising a TypeError when the operation is not supported, for e.g., when adding a Vec2 to a float."""
     raise TypeError(f'Unsupported operand type(s) for +: {type(a)} and {type(b)}')
 
-
 class Vec2:
     """
     A 2D vector class.
@@ -72,9 +71,9 @@ class Vec2:
     def __eq__(self, other):
         """Overrides == operator for vectors"""
         if isinstance(other, Vec2):
-            return self.x == other.x and self.y == other.y
+            return bool(self.x == other.x and self.y == other.y)
         else:
-            raise_un_sup(self, other)
+            return False
 
 
 #######################################################################################################
@@ -147,6 +146,6 @@ class Vec3:
     def __eq__(self, other):
         """Overrides == operator for vectors"""
         if isinstance(other, Vec3):
-            return self.x == other.x and self.y == other.y and self.z == other.z
+            return bool(self.x == other.x and self.y == other.y and self.z == other.z)
         else:
-            raise_un_sup(self, other)
+            return False
