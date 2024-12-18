@@ -9,4 +9,5 @@ print('Magnitude: ', b.mag())
 print('Direction cosines (w.r.t x, y, z axes resp.): ', b.dir)
 print('Normalized: ', b.normalized())
 
-print("Adding: ", a.__add__(b))
+print("Addition: ", a+b)
+print("Subtraction:", a-b)
