@@ -8,3 +8,5 @@ print("3D Vector: ", b)
 print('Magnitude: ', b.mag())
 print('Direction cosines (w.r.t x, y, z axes resp.): ', b.dir)
 print('Normalized: ', b.normalized())
+
+print("Adding: ", a.__add__(b))
