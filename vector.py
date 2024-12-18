@@ -42,8 +42,7 @@ class Vec2:
     return f"({self.x}, {self.y})"
 
   def __add__(self, other):
-    """Overloads the '+' operator for two vectors such that 2D vectors may be added to both 2D and 3D vectors.
-    """
+    """Overloads the '+' operator for two vectors such that 2D vectors may be added to both 2D and 3D vectors."""
     if isinstance(other, Vec2):
       return Vec2(self.x + other.x, self.y + other.y)
     elif isinstance(other, Vec3):
@@ -63,13 +62,17 @@ class Vec2:
       raise_un_sup(self, other)
 
 
-  def mag(self) -> float:
+  def mag(self):
     """Returns the magnitude of the vector, accurate upto 2 decimal places."""
     return round(math.sqrt(self.mag_Sq), 2)
 
   def normalized(self):
     """Returns a normalized vector."""
     return Vec2(self.x / self.mag(), self.y / self.mag())
+
+
+#######################################################################################################
+
 
 class Vec3:
   """
@@ -91,7 +94,7 @@ class Vec3:
   mag -- Returns the magnitude of the vector
   normalized -- Returns the normalized vector
   """
-  def __init__(self, x, y, z):
+  def __init__(self, x: float, y: float, z: float):
     """
     Parameters:
     ----------
@@ -120,9 +123,7 @@ class Vec3:
       raise_un_sup(self, other)
 
   def __sub__(self, other):
-    """
-    Overloads the '-' operator for two vectors such that 3D vectors may be subtracted from both 2D and 3D vectors.
-    """
+    """Overloads the '-' operator for two vectors such that 3D vectors may be subtracted from both 2D and 3D vectors."""
     if isinstance(other, Vec3):
       return Vec3(self.x - other.x, self.y - other.y, self.z - other.z)
     elif isinstance(other, Vec2):
