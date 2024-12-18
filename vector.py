@@ -24,7 +24,7 @@ class Vec2:
   mag -- Returns the magnitude of the vector
   normalized -- Returns the normalized vector
   """
-  def __init__(self, x, y):
+  def __init__(self, x: float, y: float):
     """
     Parameters:
     ----------
@@ -63,7 +63,7 @@ class Vec2:
       raise_un_sup(self, other)
 
 
-  def mag(self):
+  def mag(self) -> float:
     """Returns the magnitude of the vector, accurate upto 2 decimal places."""
     return round(math.sqrt(self.mag_Sq), 2)
 
