@@ -1,2 +1,2 @@
-import Vector
-print(Vector.Vec2(1, 2) + Vector.Vec2(3, 4))
+import vector as v
+print(v.Vec2(1, 2) + v.Vec2(3, 4))

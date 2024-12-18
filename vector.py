@@ -1,6 +1,6 @@
 import math
 
-def raise_unsup(a, b):
+def raise_un_sup(a, b):
   """Used for raising a TypeError when the operation is not supported, for e.g., when adding a Vec2 to a float."""
   raise TypeError(f'Unsupported operand type(s) for +: {type(a)} and {type(b)}')
 
@@ -49,7 +49,7 @@ class Vec2:
     elif isinstance(other, Vec3):
       return Vec3(self.x + other.x, self.y + other.y, other.z)
     else:
-      raise_unsup(self, other)
+      raise_un_sup(self, other)
 
   def __sub__(self, other):
     """
@@ -60,7 +60,7 @@ class Vec2:
     elif isinstance(other, Vec3):
       return Vec3(self.x - other.x, self.y - other.y, -other.z)
     else:
-      raise_unsup(self, other)
+      raise_un_sup(self, other)
 
 
   def mag(self):
@@ -117,7 +117,7 @@ class Vec3:
     elif isinstance(other, Vec2):
       return Vec3(self.x + other.x, self.y + other.y, self.z)
     else:
-      raise_unsup(self, other)
+      raise_un_sup(self, other)
 
   def __sub__(self, other):
     """
@@ -128,7 +128,7 @@ class Vec3:
     elif isinstance(other, Vec2):
       return Vec3(self.x - other.x, self.y - other.y, self.z)
     else:
-      raise_unsup(self, other)
+      raise_un_sup(self, other)
 
   def mag(self):
     """Returns the magnitude of the vector, accurate upto 2 decimal places."""
