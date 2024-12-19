@@ -1,12 +1,12 @@
 from vector import *
-a, b = Vec2(1, 1), Vec3(1,1,1)
+a, b = vector(1, 1, 0), vector(1,1,1)
 print("2D Vector: ", a)
-print('Magnitude: ', a.mag())
-print('Direction w.r.t. x-axis: ', a.dir_x)
+print('Magnitude: ', a.mag)
+print('Direction (w.r.t. x, y, z-axis resp.): ', (a.dir_degrees()))
 print('Normalized: ', a.normalized(), '\n')
 print("3D Vector: ", b)
-print('Magnitude: ', b.mag())
-print('Direction cosines (w.r.t x, y, z axes resp.): ', b.dir)
+print('Magnitude: ', b.mag)
+print('Direction cosines (w.r.t x, y, z axes resp.): ', (b.dir_degrees()))
 print('Normalized: ', b.normalized())
 
 print("Addition: ", a+b)
