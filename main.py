@@ -1,5 +1,5 @@
-from vector import *
-a, b = vector(1, 1, 0), vector(1,1,1)
+import vector as v
+a, b = v.vector(1, 1, 0), v.vector(1,1,1)
 print("2D Vector: ", a)
 print('Magnitude: ', a.mag)
 print('Direction (w.r.t. x, y, z-axis resp.): ', (a.dir_degrees()))
