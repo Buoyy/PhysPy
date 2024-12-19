@@ -43,21 +43,29 @@ class vector:
         if isinstance(other, vector):
             return vector(self.x + other.x, self.y + other.y, self.z + other.z)
         else:
-            raise TypeError(f'Unsupported operand type(s) for : vector and {type(other)}')
+            raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
 
     def __sub__(self, other):
         """Overloads the '-' operator for two vectors such that 3D vectors may be subtracted from both 2D and 3D vectors."""
         if isinstance(other, vector):
             return vector(self.x - other.x, self.y - other.y, self.z - other.z)
         else:
-            raise TypeError(f'Unsupported operand type(s) for : vector and {type(other)}')
+            raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
 
+    def __mul__(self, other):
+        """Overloads the '*' operator for a vector and a scalar for scalar multiplication."""
+        if isinstance(other, (int, float)):
+            return vector(self.x * other, self.y * other, self.z * other)
+        elif isinstance(other, vector):
+            raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}; try vector.dot() or vector.cross()')
+        else:
+            raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
     def __eq__(self, other):
-        """Overrides == operator for vectors"""
+        """Overrides == operator for vectors. A vector is equal to another vector if all their components are equal."""
         if isinstance(other, vector):
             return bool(self.x == other.x and self.y == other.y and self.z == other.z)
         else:
-            raise NotImplementedError(f'Operation \'==\' is not defined for vector and {type(other)}')
+            raise NotImplementedError(f'Operation \'==\' is not defined for {type(self)} and {type(other)}')
         
     def normalized(self):
         """Returns a normalized vector."""

@@ -11,3 +11,5 @@ print('Normalized: ', b.normalized())
 
 print("Addition: ", a+b)
 print("Subtraction:", a-b)
+print("Multiplication by 2: ", a*2)
+print("Checking error: ", a*'x')
