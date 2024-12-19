@@ -60,13 +60,37 @@ class vector:
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}; try vector.dot() or vector.cross()')
         else:
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
+    
     def __eq__(self, other):
         """Overrides == operator for vectors. A vector is equal to another vector if all their components are equal."""
         if isinstance(other, vector):
             return bool(self.x == other.x and self.y == other.y and self.z == other.z)
-        else:
-            raise NotImplementedError(f'Operation \'==\' is not defined for {type(self)} and {type(other)}')
-        
+
+    def __ne__(self, other):
+        """Overrides != operator for vectors. A vector is equal to another vector if all their components are equal."""
+        if isinstance(other, vector):
+            return (not self==other)
+
+    def __lt__(self, other):
+        """Overrides < operator for vectors. A vector is less than another vector if its magnitude is less than that of other."""
+        if isinstance(other, vector):
+            return (self.mag < other.mag)
+
+    def __gt__(self, other):
+        """Overrides > operator for vectors. A vector is more than another vector if its magnitude is more than that of other."""
+        if isinstance(other, vector):
+            return (self.mag > other.mag)
+
+    def __le__(self, other):
+        """Overrides <= operator for vectors. A vector is less than another vector if its magnitude is more than that of other."""
+        if isinstance(other, vector):
+            return (self.mag < other.mag) or (self == other)
+
+    def __ge__(self, other):
+        """Overrides >= operator for vectors. A vector is less than another vector if its magnitude is more than that of other."""
+        if isinstance(other, vector):
+            return (self.mag >= other.mag) or (self == other)
+
     def normalized(self):
         """Returns a normalized vector."""
         return vector(self.x / self.mag, self.y / self.mag, self.z / self.mag)
