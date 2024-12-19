@@ -39,14 +39,14 @@ class vector:
         return f"({self.x}, {self.y}, {self.z})"
 
     def __add__(self, other):
-        """Overloads the '+' operator for two vectors such that 3D vectors may be added to both 2D and 3D vectors."""
+        """Overloads the '+' operator for two vectors."""
         if isinstance(other, vector):
             return vector(self.x + other.x, self.y + other.y, self.z + other.z)
         else:
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
 
     def __sub__(self, other):
-        """Overloads the '-' operator for two vectors such that 3D vectors may be subtracted from both 2D and 3D vectors."""
+        """Overloads the '-' operator for two vectors."""
         if isinstance(other, vector):
             return vector(self.x - other.x, self.y - other.y, self.z - other.z)
         else:
@@ -54,7 +54,7 @@ class vector:
 
     def __mul__(self, other):
         """Overloads the '*' operator for a vector and a scalar for scalar multiplication."""
-        if isinstance(other, (int, float)):
+        if isinstance(other, (float)):
             return vector(self.x * other, self.y * other, self.z * other)
         elif isinstance(other, vector):
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}; try vector.dot() or vector.cross()')
@@ -98,3 +98,8 @@ class vector:
     def dir_degrees(self):
         """Returns a tuple with the direction of the vector with angles in degrees."""
         return (math.degrees(self.dir[0]), math.degrees(self.dir[1]), math.degrees(self.dir[2]))
+
+    def dot(self):
+        pass
+    def cross(self):
+        pass
