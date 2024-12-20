@@ -15,11 +15,15 @@ class vector:
     Methods:
     -------
     normalized -- Returns the normalized vector,
-    dir_degrees -- Returns a tuple with the direction of the vector with angles in degrees
+    dir_degrees -- Returns a tuple with the direction of the vector with angles in degrees,
+    dot -- Returns the scalar product of the provided two vectors,
+    cross -- Returns the vector product of the provided two vectors
     """
 
     def __init__(self, x: float | None = 0 , y: float | None = 0, z: float | None = 0):
         """
+        Initialises the vector with x, y and z components.
+        Automatically fills the remaining component(s) as zero in case they are not provided. 
         Parameters:
         ----------
         x -- The x component of the vector,
@@ -29,9 +33,9 @@ class vector:
         self.x = x
         self.y = y
         self.z = z
-        self.mag = round((x ** 2 + y ** 2 + z ** 2)**(0.5), 2)
+        self.mag: float = round((x ** 2 + y ** 2 + z ** 2)**(0.5), 2)
 
-        self.dir = (math.acos(x / self.mag), math.acos(y / self.mag),
+        self.dir: tuple = (math.acos(x / self.mag), math.acos(y / self.mag),
                     math.acos(z / self.mag))
 
     def __str__(self):
@@ -112,12 +116,14 @@ class vector:
         return (math.degrees(self.dir[0]), math.degrees(self.dir[1]), math.degrees(self.dir[2]))
 
     def dot(self, other):
+        """Returns the scalar product of the provided two vectors."""
         if isinstance(other, vector):
             return self.x * other.x + self.y * other.y + self.z * other.z
         else:
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
         
     def cross(self, other):
+        """Returns the vector product of the provided two vectors."""
         if isinstance(other, vector):
             return vector(self.y * other.z - self.z * other.y, self.z * other.x - self.x * other.z, self.x * other.y - self.y * other.x)
         else:
