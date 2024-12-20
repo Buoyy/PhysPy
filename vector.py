@@ -17,7 +17,8 @@ class vector:
     normalized -- Returns the normalized vector,
     dir_degrees -- Returns a tuple with the direction of the vector with angles in degrees,
     dot -- Returns the scalar product of the provided two vectors,
-    cross -- Returns the vector product of the provided two vectors
+    cross -- Returns the vector product of the provided two vectors,
+    angle -- Returns the angle between the provided two vectors
     """
 
     def __init__(self, x: float | None = 0 , y: float | None = 0, z: float | None = 0):
@@ -115,7 +116,7 @@ class vector:
         """Returns a tuple with the direction of the vector with angles in degrees."""
         return (math.degrees(self.dir[0]), math.degrees(self.dir[1]), math.degrees(self.dir[2]))
 
-    def dot(self, other):
+    def dot(self, other) -> float:
         """Returns the scalar product of the provided two vectors."""
         if isinstance(other, vector):
             return self.x * other.x + self.y * other.y + self.z * other.z
@@ -128,3 +129,8 @@ class vector:
             return vector(self.y * other.z - self.z * other.y, self.z * other.x - self.x * other.z, self.x * other.y - self.y * other.x)
         else:
             raise TypeError(f'Unsupported operand type(s) for : {type(self)} and {type(other)}')
+    
+    def angle(self, other) -> float:
+        """Returns the angle between the provided two vectors."""
+        if isinstance(other, vector):
+            return math.acos(self.dot(other)/(self.mag*other.mag))

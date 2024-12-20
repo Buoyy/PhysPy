@@ -1,4 +1,5 @@
 import vector as v
+import math
 a = v.vector(1, 1)
 b = v.vector(1, 1, 1)
 print("2D Vector: ", a)
@@ -13,4 +14,4 @@ print(a==b, a!=b, a<b, a>b, a<=b, a>=b)
 print("Dot Product:", a.dot(b))
 print("Cross Product:", a.cross(b))
 
-
+print("Angle: ", (a.angle(b)))
